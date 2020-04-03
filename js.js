@@ -8,7 +8,7 @@ function escapeRegexChar(pChar) {
     return pChar;
 }
 
-function translate(inText, dictReplace) {
+function encode(inText, dictReplace) {
 	let outText = inText;
 
 	for (const key in dictReplace) {
@@ -18,14 +18,29 @@ function translate(inText, dictReplace) {
 	return (outText)
 }
 
+function decode(inText, dictReplace) {
+    let outText = inText;
+
+    for (const key in dictReplace) {
+		outText = outText.replace(new RegExp('\\' + dictReplace[key], 'g'), key);
+    }
+
+    return (outText);
+}
+
 $(function () {
 
 	let inEl =  $('textarea#in_text');
 	let outEl =  $('textarea#out_text');
 
 	inEl.focus();
-	$('button#validate').click(() => {
-		outEl.val(translate(inEl.val(), g_dictReplace));
+	$('button#encode').click(() => {
+		outEl.val(encode(inEl.val(), g_dictReplace));
+		outEl.select();
+	});
+
+	$('button#decode').click(() => {
+		outEl.val(decode(inEl.val(), g_dictReplace));
 		outEl.select();
 	});
 
