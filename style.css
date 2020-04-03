@@ -1,0 +1,50 @@
+body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 10px;
+	background-color: white;
+}
+
+textarea
+{
+	resize: none;
+	border: #b0b7ff 3px solid;
+	background-color: #e8eaff;
+}
+
+textarea:focus, button#validate:focus
+{
+	background-color: lightgrey;
+}
+
+section#in_form
+{
+	width: calc(100% - 20px);
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+textarea#in_text
+{
+	width: calc(100% - 110px);
+	margin: 0px;
+	height:200px;
+}
+
+button#validate
+{
+	width: 100px;
+	height: 205px;
+}
+
+textarea#out_text
+{
+	margin: 0px;
+	margin-top: 5px;
+	width: calc(100% - 20px);
+	height: 200px;
+}
